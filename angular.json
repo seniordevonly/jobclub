@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/jobclub",
             "index": "src/index.html",
@@ -25,12 +25,26 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@zoomus/websdk/dist/lib/",
+                "output": "./node_modules/@zoomus/websdk/dist/lib/"
+              }
             ],
             "styles": [
+              "node_modules/@zoomus/websdk/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ],
+            "customWebpackConfig": {
+              "path": "webpack.config.js"
+            },
+            "allowedCommonJsDependencies": [
+              "@zoomus/websdk"
+            ]
           },
           "configurations": {
             "production": {
@@ -64,9 +78,12 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "jobclub:build"
+            "browserTarget": "jobclub:build",
+            "customWebpackConfig": {
+              "path": "webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -92,6 +109,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@zoomus/websdk/dist/css/bootstrap.css",
+              "node_modules/@zoomus/websdk/dist/css/react-select.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +142,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "jobclub"
+    }
+  },
+  "defaultProject": "jobclub",
+  "cli": {
+    "analytics": "64300340-747b-4b08-8d66-acaacfd53be8"
+  }
 }

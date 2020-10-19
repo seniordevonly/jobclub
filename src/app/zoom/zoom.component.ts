@@ -1,20 +1,20 @@
 import {Component, Inject, OnInit} from '@angular/core';
+
+import {environment} from '../../environments/environment';
 import {FormBuilder} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
-import {environment} from '../environments/environment';
-import { ZoomMtg } from '@zoomus/websdk';
+/*import { ZoomMtg } from '@zoomus/websdk';
 
 ZoomMtg.preLoadWasm();
-ZoomMtg.prepareJssdk();
+ZoomMtg.prepareJssdk();*/
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss', '../../node_modules/@zoomus/websdk/dist/css/bootstrap.css']
+  selector: 'app-zoom',
+  templateUrl: './zoom.component.html',
+  styleUrls: ['./zoom.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'Jobb klubb';
+export class ZoomComponent implements OnInit {
 
   constructor(private fb: FormBuilder, public httpClient: HttpClient, @Inject(DOCUMENT) document) { }
 
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     // this.getSignature();
   }
 
-  getSignature(): void {
+  /* getSignature(): void {
     this.httpClient.post(environment.signatureEndpoint, {
       meetingNumber: this.zoomForm.value.meetingNumber,
       role: this.zoomForm.value.role
@@ -48,9 +48,9 @@ export class AppComponent implements OnInit {
     }).catch((error) => {
       console.log(error);
     });
-  }
+  } */
 
-  startMeeting(signature): void {
+  /* startMeeting(signature): void {
 
     document.getElementById('zmmtg-root').style.display = 'block';
 
@@ -81,6 +81,6 @@ export class AppComponent implements OnInit {
         console.log(error);
       }
     });
-  }
+  } */
 
 }

@@ -1,0 +1,24 @@
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+  <div class="col-span-1">
+
+    <form [formGroup]="zoomForm" (ngSubmit)="onSubmit()">
+      <div class="form-check" *ngIf="zoomForm.value.meetingNumber.enable">
+        <label for="meetingNumberInput">Setfill</label>
+        <input type="text" formControlName="meetingNumber" class="form-control" id="meetingNumberInput" aria-describedby="meetingNumberHelp" placeholder="Meeting number">
+        <small id="meetingNumberHelp" class="form-text text-muted">The zoom meeting number</small>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="col-span-2">
+    <h1 class="my-8 text-center text-6xl font-bold"><span class="text-teal-500">TailwindCSS</span> and <span class="text-red-600">Angular</span> is awesome!</h1>
+    <p class="text-center text-3xl">Thanks for reading!</p>
+    <div id="zmmtg-root" zoom></div>
+    <!--<div id="zmmtg-root">
+      <div data-reactroot="" class="meeting-app"></div>
+    </div>-->
+  </div>
+
+</div>
