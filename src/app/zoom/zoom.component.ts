@@ -21,6 +21,7 @@ export class ZoomComponent implements OnInit {
   zoomForm: any;
 
   ngOnInit(): void {
+    console.log('environment.okta.clientId', environment.okta.clientId);
     this.zoomForm = this.fb.group( {
       meetingNumber:  ['94699732528', [Validators.required, Validators.min(1000)]],
       password: ['9bfFVg', Validators.required],

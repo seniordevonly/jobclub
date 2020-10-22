@@ -13,8 +13,13 @@ export const environment = {
   userEmail: '',
   passWord: 'BW0QzC',
   okta: {
-    issuer: 'https://{yourOktaDomain}/oauth2/default',
-    clientId: 'your clientId',
+    clientId: '${process.env.CLIENT_ID}',
+    issuer: '${process.env.ISSUER}',
+    disableHttpsCheck: '${process.env.TESTING_DISABLEHTTPSCHECK}',
+    redirectUri: 'http://localhost:4200/login/callback',
+    resourceServer: {
+      messagesUrl: 'http://localhost:8080/api/messages'
+    }
   }
 };
 
