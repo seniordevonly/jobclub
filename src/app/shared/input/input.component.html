@@ -1,0 +1,35 @@
+<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+  <label class="label" for="meetingNumberInput">
+    Meeting number
+  </label>
+  <!-- class border-red-500  -->
+  <input  type="number" formControlName="inputName" id="meetingNumberInput" aria-describedby="meetingNumberHelp" placeholder="Meeting number"
+          [ngClass]="{'border-red-500': inputName.invalid}"
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+
+  <div *ngIf="inputName.invalid && (inputName.dirty || inputName.touched)" class="text-red-500 text-xs italic">
+
+    <div *ngIf="inputName.errors.required">
+      Meeting number is required.
+    </div>
+
+    <div *ngIf="inputName.hasError('required')">
+      Meeting number has error required.
+    </div>
+
+    <div *ngIf="inputName.errors.min">
+      Min value is {{inputName.errors.min.min}}
+    </div>
+    <div *ngIf="inputName.errors.max">
+      Max value is {{inputName.errors.max.max}}
+    </div>
+  </div>
+
+  <!--<div *ngIf="meetingNumber.invalid" class="text-red-500 text-xs italic">
+    Please fill in meeting number
+  </div>
+
+  <div *ngIf="meetingNumber.errors.minlength">
+    Name must be at least 4 characters long.
+  </div>-->
+</div>

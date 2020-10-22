@@ -39,7 +39,13 @@ Setup instructions [angular-and-tailwindcss](https://medium.com/@jacobneterer/an
 ## Zoom in Angular
 [zoom-web-sdk-implementation-with-angular](https://medium.com/@akshayjadhav19710/zoom-web-sdk-implementation-with-angular-9a3bd1000839)
 
+#### Create Zoom meeting
+[create-a-zoom-meeting-using-zoom-api](http://codepickup.in/php/create-a-zoom-meeting-using-zoom-api/)
+
 The official SDK [@zoomus/websdk](https://www.npmjs.com/package/@zoomus/websdk)
 
 ## Angular Webpack
 Good blog [angular-webpack](https://developer.okta.com/blog/2019/12/09/angular-webpack)
+
+## Okta 
+Good one [spring-boot-application-with-okta](https://medium.com/@raghavendra.pes/securing-angular-spring-boot-application-with-okta-671e983e5b6)

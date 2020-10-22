@@ -1,17 +1,18 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
 import {environment} from '../environments/environment';
+
 import { ZoomMtg } from '@zoomus/websdk';
 
-ZoomMtg.preLoadWasm();
-ZoomMtg.prepareJssdk();
+// ZoomMtg.preLoadWasm();
+// ZoomMtg.prepareJssdk();
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss', '../../node_modules/@zoomus/websdk/dist/css/bootstrap.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'Jobb klubb';

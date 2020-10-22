@@ -5,19 +5,15 @@
   "projects": {
     "jobclub": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/jobclub",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -33,14 +29,13 @@
               }
             ],
             "styles": [
+              "node_modules/@zoomus/websdk/dist/css/bootstrap.css",
+              "node_modules/@zoomus/websdk/dist/css/react-select.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"
             ],
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            },
             "allowedCommonJsDependencies": [
               "@zoomus/websdk"
             ]
@@ -64,8 +59,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "6mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -77,12 +72,9 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "jobclub:build",
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            }
+            "browserTarget": "jobclub:build"
           },
           "configurations": {
             "production": {
@@ -108,9 +100,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/@zoomus/websdk/dist/css/bootstrap.css",
-              "node_modules/@zoomus/websdk/dist/css/react-select.css",
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -145,6 +135,6 @@
   },
   "defaultProject": "jobclub",
   "cli": {
-    "analytics": "64300340-747b-4b08-8d66-acaacfd53be8"
+    "analytics": false
   }
 }

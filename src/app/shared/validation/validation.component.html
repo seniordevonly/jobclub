@@ -1,0 +1,22 @@
+<!--<div>
+  inputName.invalid: {{inputName.invalid}} <br/>
+  inputName.dirty: {{inputName.dirty}}<br/>
+  inputName.touched: {{inputName.touched}}
+</div>-->
+<div *ngIf="inputName.invalid && (inputName.dirty || inputName.touched)" class="text-red-500 text-xs italic">
+
+  <div *ngIf="inputName.errors.required">
+    Field is required.
+  </div>
+
+  <!--<div *ngIf="inputName.hasError('required')">
+    Is error required.
+  </div>-->
+
+  <div *ngIf="inputName.errors.min">
+    Min value is {{inputName.errors.min.min}}
+  </div>
+  <div *ngIf="inputName.errors.max">
+    Max value is {{inputName.errors.max.max}}
+  </div>
+</div>

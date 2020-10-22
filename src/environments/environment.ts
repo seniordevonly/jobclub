@@ -11,7 +11,11 @@ export const environment = {
   leaveUrl: 'http://localhost:4200',
   userName: 'Angular',
   userEmail: '',
-  passWord: 'BW0QzC'
+  passWord: 'BW0QzC',
+  okta: {
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
+    clientId: 'your clientId',
+  }
 };
 
 /*
