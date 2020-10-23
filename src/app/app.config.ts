@@ -5,7 +5,7 @@ export default {
   oidc: {
     clientId: `${CLIENT_ID}`,
     issuer: `${ISSUER}`,
-    redirectUri: 'environment.okta.redirectUri',
+    redirectUri: environment.okta.redirectUri,
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
     testing: {
@@ -13,6 +13,6 @@ export default {
     }
   },
   resourceServer: {
-    messagesUrl: 'environment.okta.resourceServer.messagesUrl'
+    messagesUrl: environment.okta.resourceServer.messagesUrl
   },
 };

@@ -14,6 +14,9 @@ import config from './app.config';
 import { AdminComponent } from './admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessagesComponent } from './messages/messages.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {HeaderComponent} from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { MessagesComponent } from './messages/messages.component';
     WherebyComponent,
     AdminComponent,
     ProfileComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomeComponent,
+    NavbarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

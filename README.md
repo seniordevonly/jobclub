@@ -30,11 +30,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Setup instructions [angular-and-tailwindcss](https://medium.com/@jacobneterer/angular-and-tailwindcss-2388fb6e0bab)
 
-
     ng config projects.jobclub.architect.build.builder @angular-builders/custom-webpack:browser
     ng config projects.jobclub.architect.build.options.customWebpackConfig.path webpack.config.js
     ng config projects.jobclub.architect.serve.builder @angular-builders/custom-webpack:dev-server
     ng config projects.jobclub.architect.serve.options.customWebpackConfig.path webpack.config.js
+
+#### Tailwindui css
+- [documentation#getting-set-up](https://tailwindui.com/documentation#getting-set-up)
 
 ## Zoom in Angular
 [zoom-web-sdk-implementation-with-angular](https://medium.com/@akshayjadhav19710/zoom-web-sdk-implementation-with-angular-9a3bd1000839)
@@ -49,3 +51,8 @@ Good blog [angular-webpack](https://developer.okta.com/blog/2019/12/09/angular-w
 
 ## Okta 
 Good one [spring-boot-application-with-okta](https://medium.com/@raghavendra.pes/securing-angular-spring-boot-application-with-okta-671e983e5b6)
+
+## UI components
+- [Navbar](https://tailwindui.com/components/application-ui/navigation/navbars)
+- [Components product-application-ui](https://tailwindui.com/components#product-application-ui)
+- [tailwindui.com/preview](https://tailwindui.com/preview)

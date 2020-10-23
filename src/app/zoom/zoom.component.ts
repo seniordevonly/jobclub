@@ -4,10 +4,10 @@ import {environment} from '../../environments/environment';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
-import { ZoomMtg } from '@zoomus/websdk';
+// import { ZoomMtg } from '@zoomus/websdk';
 
-ZoomMtg.preLoadWasm();
-ZoomMtg.prepareJssdk();
+// ZoomMtg.preLoadWasm();
+// ZoomMtg.prepareJssdk();
 
 @Component({
   selector: 'app-zoom',
@@ -21,7 +21,6 @@ export class ZoomComponent implements OnInit {
   zoomForm: any;
 
   ngOnInit(): void {
-    console.log('environment.okta.clientId', environment.okta.clientId);
     this.zoomForm = this.fb.group( {
       meetingNumber:  ['94699732528', [Validators.required, Validators.min(1000)]],
       password: ['9bfFVg', Validators.required],
@@ -77,7 +76,7 @@ export class ZoomComponent implements OnInit {
     document.getElementById('zmmtg-root').style.display = 'block';
     console.log('password.value', this.password.value);
 
-    ZoomMtg.init({
+    /*ZoomMtg.init({
       leaveUrl: environment.leaveUrl,
       isSupportAV: true,
       success: (success) => {
@@ -103,7 +102,7 @@ export class ZoomComponent implements OnInit {
       error: (error) => {
         console.log('ufda, error', error);
       }
-    });
+    });*/
   }
 
 }

@@ -6,9 +6,15 @@ import {WherebyComponent} from './whereby/whereby.component';
 import {AdminComponent} from './admin/admin.component';
 import {ProfileComponent} from './profile/profile.component';
 import {MessagesComponent} from './messages/messages.component';
+import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'zoom', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  {
+    path: 'login/callback',
+    component: OktaCallbackComponent,
+  },
   { path: 'zoom', component: ZoomComponent },
   { path: 'whereby', component: WherebyComponent },
   {

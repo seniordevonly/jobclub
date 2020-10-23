@@ -1,14 +1,39 @@
-<!--<main>
-  <h1>Zoom WebSDK Sample Angular</h1>
-
-  <button (click)="getSignature()">Join Meeting</button>
-
-  <div>
-    <h2>zmmtg-root</h2>
-    <div id="zmmtg-root" zoom></div>
-  </div>
+<!--
+  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+  Read the documentation to get started: https://tailwindui.com/documentation
 
 
-</main>-->
 
-<router-outlet></router-outlet>
+
+<div class="container" style="margin-top: 7em;">
+  <router-outlet></router-outlet>
+</div>
+
+
+-->
+<!--
+  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+  Read the documentation to get started: https://tailwindui.com/documentation
+-->
+<!--
+  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+  Read the documentation to get started: https://tailwindui.com/documentation
+-->
+<div>
+  <app-navbar></app-navbar>
+
+  <app-header
+    title="Dashboard"
+  ></app-header>
+  <main>
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <!-- Replace with your content -->
+      <!-- <div class="px-4 py-6 sm:px-0">
+        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
+      </div> -->
+      <router-outlet></router-outlet>
+      <!-- /End replace -->
+    </div>
+  </main>
+</div>
+
