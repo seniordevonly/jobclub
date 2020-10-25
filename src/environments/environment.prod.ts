@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
-  signatureEndpoint: 'https://podium-zoom-api.herokuapp.com/',
-  apiKey: 'Obw9sB4VRAmsO5sWdiVHuw',
-  meetingNumber: 94425276010,
-  role: 0,
-  leaveUrl: 'http://localhost:4200',
-  userName: 'Angular',
-  userEmail: '',
-  passWord: 'BW0QzC',
+  keycloak: {
+    realm: 'jobbstien',
+    clientId: 'client-app',
+    authLink:  'https://jobclub-ui.herokuapp.com/auth',
+    loginRedirectLink: 'https://jobclub-ui.herokuapp.com',
+    registerRedirectLink: 'https://jobclub-ui.herokuapp.com',
+    logoutRedirectLink: 'https://jobclub-ui.herokuapp.com'
+  }
 };

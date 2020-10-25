@@ -17,15 +17,16 @@ import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import { Http403Component } from './shared/http403/http403.component';
 import { PermissionDirective } from './directive/permission/permission.directive';
 import { LoggedinDirective } from './directive/loggedin/loggedin.directive';
+import {environment} from '../environments/environment';
 
 // tslint:disable-next-line:typedef
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8180/auth',
-        realm: 'jobbstien',
-        clientId: 'client-app',
+        url: environment.keycloak.authLink,
+        realm: environment.keycloak.realm,
+        clientId: environment.keycloak.clientId,
       },
       bearerExcludedUrls: ['/assets', '/clients/public'],
       initOptions: {
@@ -60,7 +61,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     KeycloakAngularModule
   ],
   providers: [
-    /*{ provide: OKTA_CONFIG, useValue: config.oidc },*/
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

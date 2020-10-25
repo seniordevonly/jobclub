@@ -5,6 +5,9 @@
 export const environment = {
   production: false,
   keycloak: {
+    realm: 'jobbstien',
+    clientId: 'client-app',
+    authLink:  'https://jobclub-ui-dev.herokuapp.com/auth',
     loginRedirectLink: 'https://jobclub-ui-dev.herokuapp.com',
     registerRedirectLink: 'https://jobclub-ui-dev.herokuapp.com',
     logoutRedirectLink: 'https://jobclub-ui-dev.herokuapp.com'
