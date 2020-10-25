@@ -52,10 +52,10 @@ export class ZoomComponent implements OnInit {
       console.log('zoomForm not valid, ronk');
       return;
     }
-    this.getSignature();
+    // this.getSignature();
   }
 
-  getSignature(): void {
+  /* getSignature(): void {
     this.httpClient.post(environment.signatureEndpoint, {
       meetingNumber: this.zoomForm.value.meetingNumber,
       role: this.zoomForm.value.role
@@ -69,7 +69,7 @@ export class ZoomComponent implements OnInit {
     }).catch((error) => {
       console.log(error);
     });
-  }
+  } */
 
   startMeeting(signature): void {
 
