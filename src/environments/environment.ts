@@ -4,22 +4,10 @@
 
 export const environment = {
   production: false,
-  signatureEndpoint: 'https://podium-zoom-api.herokuapp.com/',
-  apiKey: 'Obw9sB4VRAmsO5sWdiVHuw',
-  meetingNumber: 94425276010,
-  role: 0,
-  leaveUrl: 'http://localhost:4200',
-  userName: 'Angular',
-  userEmail: '',
-  passWord: 'BW0QzC',
-  okta: {
-    clientId: '${process.env.CLIENT_ID}',
-    issuer: '${process.env.ISSUER}',
-    disableHttpsCheck: '${process.env.TESTING_DISABLEHTTPSCHECK}',
-    redirectUri: 'http://localhost:4200/login/callback',
-    resourceServer: {
-      messagesUrl: 'http://localhost:8080/api/messages'
-    }
+  keycloak: {
+    loginRedirectLink: 'http://localhost:4200',
+    registerRedirectLink: 'http://localhost:4200',
+    logoutRedirectLink: 'http://localhost:4200'
   }
 };
 

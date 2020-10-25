@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {NgModule, APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ZoomComponent } from './zoom/zoom.component';
@@ -8,12 +8,33 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputComponent } from './shared/input/input.component';
 import { ValidationComponent } from './shared/validation/validation.component';
 import { WherebyComponent } from './whereby/whereby.component';
-import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
-import { OKTA_CONFIG } from '@okta/okta-angular';
-import config from './app.config';
 import { AdminComponent } from './admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessagesComponent } from './messages/messages.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
+import { Http403Component } from './shared/http403/http403.component';
+import { PermissionDirective } from './directive/permission/permission.directive';
+import { LoggedinDirective } from './directive/loggedin/loggedin.directive';
+
+// tslint:disable-next-line:typedef
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+    keycloak.init({
+      config: {
+        url: 'http://localhost:8180/auth',
+        realm: 'jobbstien',
+        clientId: 'client-app',
+      },
+      bearerExcludedUrls: ['/assets', '/clients/public'],
+      initOptions: {
+        onLoad: 'check-sso',
+        silentCheckSsoRedirectUri:
+          window.location.origin + '/assets/silent-check-sso.html',
+      },
+    });
+}
 
 @NgModule({
   declarations: [
@@ -24,18 +45,30 @@ import { MessagesComponent } from './messages/messages.component';
     WherebyComponent,
     AdminComponent,
     ProfileComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomeComponent,
+    NavbarComponent,
+    Http403Component,
+    PermissionDirective,
+    LoggedinDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    KeycloakAngularModule
   ],
   providers: [
-    { provide: OKTA_CONFIG, useValue: config.oidc },
+    /*{ provide: OKTA_CONFIG, useValue: config.oidc },*/
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    }
   ],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

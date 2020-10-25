@@ -49,3 +49,19 @@ Good blog [angular-webpack](https://developer.okta.com/blog/2019/12/09/angular-w
 
 ## Okta 
 Good one [spring-boot-application-with-okta](https://medium.com/@raghavendra.pes/securing-angular-spring-boot-application-with-okta-671e983e5b6)
+
+## Keycloak
+Link directly to registration
+    
+    http://localhost:8180/auth/realms/jobbstien/protocol/openid-connect/registrations?client_id=client-app&redirect_uri=http%3A%2F%2Flocalhost%3A4200&response_type=code
+
+## Themes
+Disable [cache](https://keycloakthemes.com/blog/how-to-turn-off-the-keycloak-theme-cache)
+
+
+### Good resources
+- [keycloak-angular](https://www.npmjs.com/package/keycloak-angular)
+- [integration-with-angular-frontend](https://medium.com/@sairamkrish/keycloak-integration-part-2-integration-with-angular-frontend-f2716c696a28)
+- [How to create structural directive in Angular to manage permission based display](https://www.youtube.com/watch?v=GIjmJneoypw)
+- [baeldung.com/keycloak-custom-login-page](https://www.baeldung.com/keycloak-custom-login-page)
+- [Cancel button login screen](https://issues.redhat.com/browse/KEYCLOAK-1740)

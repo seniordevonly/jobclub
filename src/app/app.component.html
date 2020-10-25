@@ -1,14 +1,27 @@
-<!--<main>
-  <h1>Zoom WebSDK Sample Angular</h1>
+<!--
+  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+  Read the documentation to get started: https://tailwindui.com/documentation
+-->
+<div>
+  <app-navbar></app-navbar>
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold leading-tight text-gray-900">
+        Dashboard
+      </h1>
+    </div>
+  </header>
+  <main>
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <!-- Replace with your content -->
+      <div class="px-4 py-6 sm:px-0">
+        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
 
-  <button (click)="getSignature()">Join Meeting</button>
+          <router-outlet></router-outlet>
 
-  <div>
-    <h2>zmmtg-root</h2>
-    <div id="zmmtg-root" zoom></div>
-  </div>
+        </div>
+      </div>
 
-
-</main>-->
-
-<router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
