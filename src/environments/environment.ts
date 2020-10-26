@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   keycloak: {
-    authLink: 'http://localhost:4200/auth',
+    authLink: 'http://localhost:8180/auth',
     realm: 'jobbstien',
     clientId: 'client-app',
     loginRedirectLink: 'http://localhost:4200',
