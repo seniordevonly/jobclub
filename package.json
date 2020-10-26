@@ -54,11 +54,6 @@
     "typescript": "~4.0.2"
   },
   "engines": {
-    "name": "jobclub-ui",
-    "description": "The UI for Job club",
-    "version": "1.0.0",
-    "engines": {
-      "node": "12.x"
-    }
+    "node": "12.x"
   }
 }
