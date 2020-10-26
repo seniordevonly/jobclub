@@ -11,6 +11,9 @@ export const environment = {
     loginRedirectLink: 'http://localhost:4200',
     registerRedirectLink: 'http://localhost:4200',
     logoutRedirectLink: 'http://localhost:4200'
+  },
+  meetingService: {
+    profileUrl: 'http://localhost:8080/profile'
   }
 };
 

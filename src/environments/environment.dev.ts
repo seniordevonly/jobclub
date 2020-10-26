@@ -11,6 +11,9 @@ export const environment = {
     loginRedirectLink: 'https://jobclub-ui-dev.herokuapp.com',
     registerRedirectLink: 'https://jobclub-ui-dev.herokuapp.com',
     logoutRedirectLink: 'https://jobclub-ui-dev.herokuapp.com'
+  },
+  meetingService: {
+    profileUrl: 'https://jobclub-meeting-dev.herokuapp.com/profile'
   }
 };
 

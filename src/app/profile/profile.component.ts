@@ -54,8 +54,7 @@ export class ProfileComponent implements OnInit {
     console.log('isAdminRole', this.isAdminRole);
     console.log('userDetails', this.userDetails);
 
-    const url = 'http://localhost:8080/profile';
-    this.httpClient.get(url).toPromise().then((data: any) => {
+    this.httpClient.get(environment.meetingService.profileUrl).toPromise().then((data: any) => {
       console.log('profile data:', data);
       this.profileName = data.name;
       this.profileAge = data.age;
