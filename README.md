@@ -58,6 +58,8 @@ Link directly to registration
 ## Themes
 Disable [cache](https://keycloakthemes.com/blog/how-to-turn-off-the-keycloak-theme-cache)
 
+## Heroku
+    $ heroku config:set NODE_MODULES_CACHE=true -a jobclub-ui-dev
 
 ### Good resources
 - [keycloak-angular](https://www.npmjs.com/package/keycloak-angular)
