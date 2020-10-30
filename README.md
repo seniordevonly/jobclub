@@ -6,6 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+To work with whereby locally
+
+    $ ng serve --ssl true --host jobbstien.no --disable-host-check
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
@@ -67,3 +71,6 @@ Disable [cache](https://keycloakthemes.com/blog/how-to-turn-off-the-keycloak-the
 - [How to create structural directive in Angular to manage permission based display](https://www.youtube.com/watch?v=GIjmJneoypw)
 - [baeldung.com/keycloak-custom-login-page](https://www.baeldung.com/keycloak-custom-login-page)
 - [Cancel button login screen](https://issues.redhat.com/browse/KEYCLOAK-1740)
+
+    
+    $ ng generate class shared/models/meeting --type=model

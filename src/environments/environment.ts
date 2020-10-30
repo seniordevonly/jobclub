@@ -5,15 +5,18 @@
 export const environment = {
   production: false,
   keycloak: {
-    realm: 'jobbstien',
+    realm: 'jobclub',
     clientId: 'client-app',
-    authLink:  'http://localhost:8180/auth',
-    loginRedirectLink: 'http://localhost:4200',
-    registerRedirectLink: 'http://localhost:4200',
-    logoutRedirectLink: 'http://localhost:4200'
+    authLink:  'http://localhost:8080/auth',
+    redirectUrl: 'http://localhost:4200'
+  },
+  services: {
+    meeting: {
+      baseUrl: 'http://localhost:8081'
+    }
   },
   meetingService: {
-    profileUrl: 'http://localhost:8080/profile'
+    profileUrl: 'http://localhost:8081/profile'
   }
 };
 

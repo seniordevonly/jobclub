@@ -16,14 +16,18 @@ interface Profile {
 })
 export class ProfileComponent implements OnInit {
 
+  constructor(public httpClient: HttpClient, public keycloakService: KeycloakService) {
+
+  }
+
   userDetails: KeycloakProfile;
   isUserRole: boolean;
   isAdminRole: boolean;
   profileName: string;
   profileAge: string;
 
-  constructor(public httpClient: HttpClient, public keycloakService: KeycloakService) {
-
+  private static profileUrl(): string {
+    return environment.services.meeting.baseUrl + '/profile';
   }
 
   ngOnInit(): void {
@@ -43,18 +47,14 @@ export class ProfileComponent implements OnInit {
 
     const roles = this.keycloakService.getUserRoles(true);
     console.log('roles', roles);
-    // this.username = this.keycloakService.getUsername();
 
     if (await this.keycloakService.isLoggedIn()) {
       this.userDetails = await this.keycloakService.loadUserProfile();
     }
     this.isUserRole = this.keycloakService.isUserInRole('user');
     this.isAdminRole = this.keycloakService.isUserInRole('admin');
-    console.log('isUserRole', this.isUserRole);
-    console.log('isAdminRole', this.isAdminRole);
-    console.log('userDetails', this.userDetails);
 
-    this.httpClient.get(environment.meetingService.profileUrl).toPromise().then((data: any) => {
+    this.httpClient.get(ProfileComponent.profileUrl()).toPromise().then((data: any) => {
       console.log('profile data:', data);
       this.profileName = data.name;
       this.profileAge = data.age;

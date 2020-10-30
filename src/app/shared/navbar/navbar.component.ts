@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   login(): void {
     class LoginOptions implements Keycloak.KeycloakLoginOptions {
-      redirectUri = environment.keycloak.loginRedirectLink;
+      redirectUri = environment.keycloak.redirectUrl;
       action = 'login';
       locale = 'no';
     }
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
 
   register(): void {
     class LoginOptions implements Keycloak.KeycloakLoginOptions {
-      redirectUri = environment.keycloak.registerRedirectLink;
+      redirectUri = environment.keycloak.redirectUrl;
       action = 'register';
     }
 
@@ -35,6 +35,6 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
-    this.keycloakService.logout(environment.keycloak.logoutRedirectLink);
+    this.keycloakService.logout(environment.keycloak.redirectUrl);
   }
 }

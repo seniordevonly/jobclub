@@ -7,10 +7,8 @@ export const environment = {
   keycloak: {
     realm: 'jobclub',
     clientId: 'client-app',
-    authLink:  'https://jobclub-identity-dev.herokuapp.com/auth/',
-    loginRedirectLink: 'https://jobclub-ui-dev.herokuapp.com',
-    registerRedirectLink: 'https://jobclub-ui-dev.herokuapp.com',
-    logoutRedirectLink: 'https://jobclub-ui-dev.herokuapp.com'
+    authLink:  'https://jobclub-identity-dev.herokuapp.com/auth',
+    redirectUrl: 'https://dev.jobbstien.no'
   },
   meetingService: {
     profileUrl: 'https://jobclub-meeting-dev.herokuapp.com/profile'

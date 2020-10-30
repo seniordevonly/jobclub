@@ -1,1 +1,29 @@
-<whereby-embed audio background chat emptyRoomInvitation help leaveButton minimal people precallReview recording screenshare video subdomain="seniordev" room="/thomas"></whereby-embed>
+<!--<whereby-embed audio background chat emptyRoomInvitation help leaveButton minimal people precallReview recording screenshare video subdomain="seniordev" room="/thomas"></whereby-embed>-->
+
+<iframe src="https://jobbstien.whereby.com/5ab8f637-5f8c-46eb-b64c-9dbe71f94ee4?embed&iframeSource=jobbstien"
+        allow="camera; microphone; fullscreen; speaker; display-capture"></iframe>
+
+<!--<iframe *ngIf="meeting?.roomUrl" [src]="meeting.roomUrl"
+        allow="camera; microphone; fullscreen; speaker; display-capture">-->
+
+<!--<iframe width="420" height="345" [src]="video | safe">
+</iframe>-->
+
+<table>
+  <tr>
+    <th>Meeting id</th>
+    <td>{{meeting?.meetingId}}</td>
+  </tr>
+  <tr>
+    <th>Room url</th>
+    <td>{{meeting?.roomUrl}}</td>
+  </tr>
+  <tr>
+    <th>Start date</th>
+    <td>{{meeting?.startDate}}</td>
+  </tr>
+  <tr>
+    <th>End date</th>
+    <td>{{meeting?.endDate}}</td>
+  </tr>
+</table>
