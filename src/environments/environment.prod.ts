@@ -6,7 +6,9 @@ export const environment = {
     authLink:  'https://jobclub-ui.herokuapp.com/auth',
     redirectUrl: 'https://jobclub-ui.herokuapp.com'
   },
-  meetingService: {
-    profileUrl: 'https://jobclub-meeting.herokuapp.com/profile'
+  services: {
+    meeting: {
+      baseUrl: 'https://jobclub-meeting.herokuapp.com/profile'
+    }
   }
 };

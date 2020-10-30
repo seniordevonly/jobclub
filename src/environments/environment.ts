@@ -14,9 +14,6 @@ export const environment = {
     meeting: {
       baseUrl: 'http://localhost:8081'
     }
-  },
-  meetingService: {
-    profileUrl: 'http://localhost:8081/profile'
   }
 };
 

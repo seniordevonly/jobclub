@@ -10,8 +10,10 @@ export const environment = {
     authLink:  'https://jobclub-identity-dev.herokuapp.com/auth',
     redirectUrl: 'https://dev.jobbstien.no'
   },
-  meetingService: {
-    profileUrl: 'https://jobclub-meeting-dev.herokuapp.com/profile'
+  services: {
+    meeting: {
+      baseUrl: 'https://jobclub-meeting-dev.herokuapp.com/profile'
+    }
   }
 };
 
