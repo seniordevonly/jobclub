@@ -8,7 +8,7 @@ export const environment = {
     realm: 'jobclub',
     clientId: 'client-app',
     authLink:  'http://localhost:8080/auth',
-    redirectUrl: 'http://localhost:4200'
+    redirectUrl: 'https://dev.jobbstien.no:4200'
   },
   services: {
     meeting: {

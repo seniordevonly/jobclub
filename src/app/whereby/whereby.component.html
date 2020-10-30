@@ -3,8 +3,14 @@
 <iframe src="https://jobbstien.whereby.com/5ab8f637-5f8c-46eb-b64c-9dbe71f94ee4?embed&iframeSource=jobbstien"
         allow="camera; microphone; fullscreen; speaker; display-capture"></iframe>
 
-<!--<iframe *ngIf="meeting?.roomUrl" [src]="meeting.roomUrl"
-        allow="camera; microphone; fullscreen; speaker; display-capture">-->
+<button (click)="postMeeting()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Create meeting
+</button>
+
+<!--<button value="Create meeting">Create meeting</button>-->
+
+<iframe *ngIf="iframeSrc" [src]="iframeSrc" width="500px"
+        allow="camera; microphone; fullscreen; speaker; display-capture">
 
 <!--<iframe width="420" height="345" [src]="video | safe">
 </iframe>-->

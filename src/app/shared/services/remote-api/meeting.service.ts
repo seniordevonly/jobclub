@@ -12,17 +12,20 @@ export class MeetingService {
   constructor(public httpClient: HttpClient) { }
 
   private static wherebyUrl(id): string {
-    return environment.services.meeting.baseUrl + '/whereby/' + id;
+      return environment.services.meeting.baseUrl + '/whereby/' + id;
   }
 
   public getWherebyMeeting(id): Observable<Meeting> {
-    return this.httpClient.get<Meeting>(MeetingService.wherebyUrl(15868186));
+    return this.httpClient.get<Meeting>(MeetingService.wherebyUrl(id));
   }
 
   public postWherebyMeeting(): Observable<any> {
 
-    const body = {};
-    return this.httpClient.post(MeetingService.wherebyUrl(1), body);
+    const body = {
+      startDate: new Date(),
+      endDate: new Date()
+    };
+    return this.httpClient.post(environment.services.meeting.baseUrl + '/whereby', body);
     /* this.httpClient.post(MeetingService.wherebyUrl(), body).toPromise().then(meeting => {
       console.log()
     });

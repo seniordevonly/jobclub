@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MeetingService} from '../shared/services/remote-api/meeting.service';
 import {Meeting} from '../shared/models/meeting.model';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-whereby',
@@ -9,21 +10,23 @@ import {Meeting} from '../shared/models/meeting.model';
 })
 export class WherebyComponent implements OnInit {
 
-  constructor(private meetingService: MeetingService) { }
+  constructor(private meetingService: MeetingService, private sanitizer: DomSanitizer) { }
 
   meeting: Meeting;
+  iframeSrc: SafeResourceUrl;
 
   ngOnInit(): void {
-    this.loadMeeting();
+    // this.getMeeting(15868186);
   }
 
-  private loadMeeting(): void {
-    this.meetingService.getWherebyMeeting(15868186)
-      .subscribe((data: Meeting) => this.meeting = {
-        startDate: data.startDate,
-        endDate: data.endDate,
-        roomUrl: data.roomUrl,
-        meetingId: data.meetingId
+  private getMeeting(meetingId: number): void {
+    /*this.meetingService.getWherebyMeeting(meetingId)
+      .subscribe((data: Meeting) => this.meeting = data);*/
+
+    this.meetingService.getWherebyMeeting(meetingId)
+      .subscribe((data: Meeting) => {
+        this.meeting = data;
+        this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(data.roomUrl);
       });
 
     /*
@@ -33,6 +36,13 @@ this.configService.getConfig()
         textfile:  data.textfile
     });
      */
+  }
+
+  public postMeeting(): void {
+    this.meetingService.postWherebyMeeting().subscribe((data: Meeting) => {
+      this.meeting = data;
+      this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(data.roomUrl);
+    });
   }
 
 }
