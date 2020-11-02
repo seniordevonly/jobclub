@@ -8,7 +8,7 @@ export const environment = {
   },
   services: {
     meeting: {
-      baseUrl: 'https://jobclub-meeting.herokuapp.com/profile'
+      baseUrl: 'https://jobclub-meeting.herokuapp.com'
     }
   }
 };
