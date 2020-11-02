@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   userDetails: KeycloakProfile;
   isUserRole: boolean;
   isAdminRole: boolean;
+  isTeacherRole: boolean;
   profileName: string;
   profileAge: string;
 
@@ -53,6 +54,7 @@ export class ProfileComponent implements OnInit {
     }
     this.isUserRole = this.keycloakService.isUserInRole('user');
     this.isAdminRole = this.keycloakService.isUserInRole('admin');
+    this.isTeacherRole = this.keycloakService.isUserInRole('teacher');
 
     this.httpClient.get(ProfileComponent.profileUrl()).toPromise().then((data: any) => {
       console.log('profile data:', data);

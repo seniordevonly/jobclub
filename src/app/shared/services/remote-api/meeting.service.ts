@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {Observable} from 'rxjs';
 import {Meeting} from '../../models/meeting.model';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +12,31 @@ export class MeetingService {
 
   constructor(public httpClient: HttpClient) { }
 
-  private static wherebyUrl(id): string {
+  private static wherebyUrlForId(id): string {
       return environment.services.meeting.baseUrl + '/whereby/' + id;
   }
 
-  public getWherebyMeeting(id): Observable<Meeting> {
-    return this.httpClient.get<Meeting>(MeetingService.wherebyUrl(id));
+  private static wherebyUrl(): string {
+    return environment.services.meeting.baseUrl + '/whereby';
   }
 
-  public postWherebyMeeting(): Observable<any> {
+  private static formatDate(date: Date): string {
+    return moment(date).format('YYYY-MM-DD HH:mm:ss');
+  }
+
+  public getWherebyMeeting(id): Observable<Meeting> {
+    return this.httpClient.get<Meeting>(MeetingService.wherebyUrlForId(id));
+  }
+
+  public getWherebyMeetings(): Observable<Meeting[]> {
+    return this.httpClient.get<Meeting[]>(MeetingService.wherebyUrl());
+  }
+
+  public postWherebyMeeting(start: Date, end: Date): Observable<any> {
 
     const body = {
-      startDate: new Date(),
-      endDate: new Date()
+      startDate: MeetingService.formatDate(start),
+      endDate: MeetingService.formatDate(end)
     };
     return this.httpClient.post(environment.services.meeting.baseUrl + '/whereby', body);
     /* this.httpClient.post(MeetingService.wherebyUrl(), body).toPromise().then(meeting => {

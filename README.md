@@ -65,12 +65,24 @@ Disable [cache](https://keycloakthemes.com/blog/how-to-turn-off-the-keycloak-the
 ## Heroku
     $ heroku config:set NODE_MODULES_CACHE=true -a jobclub-ui-dev
 
+## Local SSL
+  
+    $ openssl req -new -x509 -newkey rsa:2048 -sha256 -nodes -keyout localhost.key -days 3560 -out localhost.crt -config certificate.cnf
+    $ openssl req -new -x509 -newkey rsa:2048 -sha256 -nodes -keyout local_jobbstien_no.key -days 3560 -out local.jobbstien.no.crt -config certificate_local_jobbstien_no.cnf
+    $ openssl req -new -x509 -newkey rsa:2048 -sha256 -nodes -keyout my_jobbstien_no.key -days 3560 -out my_jobbstien_no.crt -config certificate_my_jobbstien_no.cnf
+    
+Install `localhost.crt` in keychain
+
+    $ ng serve --ssl true --host my.jobbstien.no --disable-host-check
+
 ### Good resources
 - [keycloak-angular](https://www.npmjs.com/package/keycloak-angular)
 - [integration-with-angular-frontend](https://medium.com/@sairamkrish/keycloak-integration-part-2-integration-with-angular-frontend-f2716c696a28)
 - [How to create structural directive in Angular to manage permission based display](https://www.youtube.com/watch?v=GIjmJneoypw)
 - [baeldung.com/keycloak-custom-login-page](https://www.baeldung.com/keycloak-custom-login-page)
 - [Cancel button login screen](https://issues.redhat.com/browse/KEYCLOAK-1740)
+- [using-angular-cli-to-serve-over-https-locally](https://medium.com/@richardr39/using-angular-cli-to-serve-over-https-locally-70dab07417c8)
+- [if-you-are-getting-the-error-error-loading-extension-section-v3-ca-on-macos-follow-the-comment](https://medium.com/@dngrhm/if-you-are-getting-the-error-error-loading-extension-section-v3-ca-on-macos-follow-the-comment-d3c5bf275356)
 
     
     $ ng generate class shared/models/meeting --type=model

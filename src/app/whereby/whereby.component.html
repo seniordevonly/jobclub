@@ -1,7 +1,7 @@
 <!--<whereby-embed audio background chat emptyRoomInvitation help leaveButton minimal people precallReview recording screenshare video subdomain="seniordev" room="/thomas"></whereby-embed>-->
 
-<iframe src="https://jobbstien.whereby.com/5ab8f637-5f8c-46eb-b64c-9dbe71f94ee4?embed&iframeSource=jobbstien"
-        allow="camera; microphone; fullscreen; speaker; display-capture"></iframe>
+<!-- <iframe src="https://jobbstien.whereby.com/5ab8f637-5f8c-46eb-b64c-9dbe71f94ee4?embed&iframeSource=jobbstien" width="700px" height="700px"
+        allow="camera; microphone; fullscreen; speaker; display-capture"></iframe> -->
 
 <button (click)="postMeeting()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
   Create meeting
@@ -9,12 +9,25 @@
 
 <!--<button value="Create meeting">Create meeting</button>-->
 
-<iframe *ngIf="iframeSrc" [src]="iframeSrc" width="500px"
-        allow="camera; microphone; fullscreen; speaker; display-capture">
-
 <!--<iframe width="420" height="345" [src]="video | safe">
 </iframe>-->
 
+<h2>Meetings</h2>
+<table>
+  <tr>
+    <th>Meeting id</th>
+    <th>Link</th>
+  </tr>
+  <tr *ngFor="let meeting of meetings">
+    <td>
+      <a href="{{meeting.roomUrl}}">{{meeting.meetingId}}</a>
+    </td>
+    <td> <a href="{{meeting.roomUrl}}">{{meeting.roomUrl}}</a> </td>
+  </tr>
+</table>
+
+
+<h2>Current meeting</h2>
 <table>
   <tr>
     <th>Meeting id</th>
@@ -24,12 +37,8 @@
     <th>Room url</th>
     <td>{{meeting?.roomUrl}}</td>
   </tr>
-  <tr>
-    <th>Start date</th>
-    <td>{{meeting?.startDate}}</td>
-  </tr>
-  <tr>
-    <th>End date</th>
-    <td>{{meeting?.endDate}}</td>
-  </tr>
 </table>
+
+<iframe *ngIf="iframeSrc" [src]="iframeSrc" width="500px" height="500px"
+        allow="camera; microphone; fullscreen; speaker; display-capture">
+

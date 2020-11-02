@@ -4,12 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
+    "start-ssl": "ng serve --host my.jobbstien.no --ssl --ssl-key certificates/my_jobbstien_no.key --port=443 --ssl-cert certificates/my_jobbstien_no.crt",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --configuration=${ENV}"
-},
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.1.5",
@@ -24,6 +25,7 @@
     "express": "^4.17.1",
     "keycloak-angular": "^8.0.1",
     "keycloak-js": "^11.0.2",
+    "moment": "^2.29.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
