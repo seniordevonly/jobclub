@@ -3,42 +3,50 @@
 <!-- <iframe src="https://jobbstien.whereby.com/5ab8f637-5f8c-46eb-b64c-9dbe71f94ee4?embed&iframeSource=jobbstien" width="700px" height="700px"
         allow="camera; microphone; fullscreen; speaker; display-capture"></iframe> -->
 
-<button (click)="postMeeting()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Create meeting
+<h2>Welcome {{mainRole}}</h2>
+
+<button *ngIf="isTeacherRole" (click)="postMeeting()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Create meeting as Teacher
 </button>
 
-<!--<button value="Create meeting">Create meeting</button>-->
+<div *ngIf="meetings?.length > 0">
+  <h2>Meetings</h2>
+  <table>
+    <tr>
+      <th>Meeting id</th>
+    </tr>
+    <tr *ngFor="let m of meetings">
+      <td>
+        <a href="{{m.roomUrl}}" title="{{m.roomUrl}}">{{m.meetingId}}</a>
+      </td>
+      <td>
+        <button *ngIf="isMeetingNotActive(m)" (click)="joinMeeting(m)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Join meeting
+        </button>
+        <button *ngIf="isMeetingActive(m)" (click)="leaveMeeting(meeting)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Leave meeting
+        </button>
+      </td>
+      <td>
+        <a *ngIf="isMeetingNotActive(m)" style="cursor: pointer;" (click)="deleteMeeting(m)">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>
 
-<!--<iframe width="420" height="345" [src]="video | safe">
-</iframe>-->
+<div *ngIf="meetings?.length == 0">
+  <h2>No meetings yet</h2>
+</div>
 
-<h2>Meetings</h2>
-<table>
-  <tr>
-    <th>Meeting id</th>
-    <th>Link</th>
-  </tr>
-  <tr *ngFor="let meeting of meetings">
-    <td>
-      <a href="{{meeting.roomUrl}}">{{meeting.meetingId}}</a>
-    </td>
-    <td> <a href="{{meeting.roomUrl}}">{{meeting.roomUrl}}</a> </td>
-  </tr>
-</table>
-
-
+<div *ngIf="meeting">
 <h2>Current meeting</h2>
 <table>
   <tr>
     <th>Meeting id</th>
-    <td>{{meeting?.meetingId}}</td>
-  </tr>
-  <tr>
-    <th>Room url</th>
-    <td>{{meeting?.roomUrl}}</td>
+    <td><a href="{{meeting?.roomUrl}}" title="{{meeting?.roomUrl}}"> {{meeting?.meetingId}}</a> </td>
   </tr>
 </table>
+</div>
 
-<iframe *ngIf="iframeSrc" [src]="iframeSrc" width="500px" height="500px"
+<iframe *ngIf="iframeSrc" [src]="iframeSrc" width="1024px" height="756px" style="margin-bottom: 50px;"
         allow="camera; microphone; fullscreen; speaker; display-capture">
-

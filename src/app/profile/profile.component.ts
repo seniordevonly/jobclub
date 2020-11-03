@@ -4,11 +4,6 @@ import {KeycloakService} from 'keycloak-angular';
 import {KeycloakProfile} from 'keycloak-js';
 import {environment} from '../../environments/environment';
 
-interface Profile {
-  name: string;
-  age: number;
-}
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -32,8 +27,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const userClaims = await this.oktaAuth.getUser();
-    // this.claims = Object.entries(userClaims).map(entry => ({ claim: entry[0], value: entry[1] }));
     this.getProfileInfo();
   }
 

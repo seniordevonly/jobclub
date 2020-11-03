@@ -17,7 +17,7 @@ export class MeetingService {
   }
 
   private static wherebyUrl(): string {
-    return environment.services.meeting.baseUrl + '/whereby';
+    return environment.services.meeting.baseUrl; // '/whereby';
   }
 
   private static formatDate(date: Date): string {
@@ -28,29 +28,24 @@ export class MeetingService {
     return this.httpClient.get<Meeting>(MeetingService.wherebyUrlForId(id));
   }
 
-  public getWherebyMeetings(): Observable<Meeting[]> {
-    return this.httpClient.get<Meeting[]>(MeetingService.wherebyUrl());
+  public getWherebyMeetingsForTeacher(): Observable<Meeting[]> {
+    return this.httpClient.get<Meeting[]>(MeetingService.wherebyUrl() + '/whereby');
+  }
+
+  public getWherebyMeetingsForUser(): Observable<Meeting[]> {
+    return this.httpClient.get<Meeting[]>(MeetingService.wherebyUrl() + '/whereby/list');
+  }
+
+  public deleteWherebyMeetings(meetingId: number): Observable<any> {
+    return this.httpClient.delete(MeetingService.wherebyUrlForId(meetingId));
   }
 
   public postWherebyMeeting(start: Date, end: Date): Observable<any> {
-
     const body = {
       startDate: MeetingService.formatDate(start),
       endDate: MeetingService.formatDate(end)
     };
     return this.httpClient.post(environment.services.meeting.baseUrl + '/whereby', body);
-    /* this.httpClient.post(MeetingService.wherebyUrl(), body).toPromise().then(meeting => {
-      console.log()
-    });
-
-    this.httpClient.get(environment.services.meeting.baseUrl + '/').toPromise().then((data: any) => {
-      console.log('profile data:', data);
-      this.profileName = data.name;
-      this.profileAge = data.age;
-    }).catch((error) => {
-      console.log(error);
-    });*/
-
   }
 
 }
