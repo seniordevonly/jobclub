@@ -13,11 +13,11 @@ export class MeetingService {
   constructor(public httpClient: HttpClient) { }
 
   private static wherebyUrlForId(id): string {
-      return environment.services.meeting.baseUrl + '/whereby/' + id;
+      return environment.services.baseUrl + '/whereby/' + id;
   }
 
   private static wherebyUrl(): string {
-    return environment.services.meeting.baseUrl; // '/whereby';
+    return environment.services.baseUrl; // '/whereby';
   }
 
   private static formatDate(date: Date): string {
@@ -45,7 +45,7 @@ export class MeetingService {
       startDate: MeetingService.formatDate(start),
       endDate: MeetingService.formatDate(end)
     };
-    return this.httpClient.post(environment.services.meeting.baseUrl + '/whereby', body);
+    return this.httpClient.post(environment.services.baseUrl + '/whereby', body);
   }
 
 }

@@ -7,6 +7,7 @@
     "start-ssl": "ng serve --host my.jobbstien.no --ssl --ssl-key certificates/my_jobbstien_no.key --port=443 --ssl-cert certificates/my_jobbstien_no.crt",
     "build": "ng build",
     "test": "ng test",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --configuration=${ENV}"

@@ -1,11 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MeetingService } from './meeting.service';
+import { MeetService } from './meet.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {UserService} from './user/user.service';
 
-xdescribe('MeetingService', () => {
-  let service: MeetingService;
+describe('MeetService', () => {
+  let service: MeetService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
@@ -13,7 +12,7 @@ xdescribe('MeetingService', () => {
       imports: [ HttpClientTestingModule ]
     });
     httpMock = TestBed.inject(HttpTestingController);
-    service = TestBed.inject(MeetingService);
+    service = TestBed.inject(MeetService);
   });
 
   it('should be created', () => {

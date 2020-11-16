@@ -1,0 +1,68 @@
+<h2>Teachers</h2>
+<!--<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+  </tr>
+  <tr *ngFor="let t of teachers">
+    <td title="{{t.teacherId}}">{{t.firstName}}</td>
+    <td>{{t.lastName  }}</td>
+    <td>
+      <button (click)="scheduleMeeting(t)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Create meeting with teacher
+      </button>
+    </td>
+  </tr>
+</table>-->
+
+
+<div *ngFor="let t of teachers">
+
+  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">{{t.lastName}}, {{t.firstName}}</div>
+      <p class="text-gray-700 text-base">
+        Book a meeting with your teacher: {{t.email}}
+      </p>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+      <button (click)="scheduleMeeting(t)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Book meeting
+      </button>
+      <!--<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>-->
+    </div>
+  </div>
+
+</div>
+
+
+<button (click)="getMeetings()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Get meetings
+</button>
+
+<div *ngIf="meetings?.length > 0">
+  <h2>Meetings</h2>
+  <table>
+    <tr>
+      <th>Meeting id</th>
+    </tr>
+    <tr *ngFor="let m of meetings">
+      <td>
+        <a href="{{m.roomUrl}}" title="{{m.roomUrl}}">{{m.meetingId}}</a>
+      </td>
+      <td>
+        <button (click)="joinMeeting(m)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Join meeting
+        </button>
+        <!--<button (click)="leaveMeeting(meeting)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Leave meeting
+        </button>-->
+      </td>
+      <td>
+        <!-- <a *ngIf="isMeetingNotActive(m)" style="cursor: pointer;" (click)="deleteMeeting(m)">Delete</a> -->
+      </td>
+    </tr>
+  </table>
+</div>

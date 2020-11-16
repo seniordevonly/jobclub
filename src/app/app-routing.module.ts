@@ -7,6 +7,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {HomeComponent} from './home/home.component';
 import {AppAuthGuard} from './app-auth.guard';
 import {Http403Component} from './shared/http403/http403.component';
+import {MeetComponent} from './meet/meet.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'zoom', pathMatch: 'full' },
@@ -28,6 +29,12 @@ const routes: Routes = [
   {
     path: 'whereby',
     component: WherebyComponent,
+    canActivate: [AppAuthGuard],
+    data: { roles: ['user'] }
+  },
+  {
+    path: 'meet',
+    component: MeetComponent,
     canActivate: [AppAuthGuard],
     data: { roles: ['user'] }
   },

@@ -11,8 +11,9 @@ export const environment = {
     redirectUrl: 'https://my.jobbstien.no'
   },
   services: {
+    baseUrl: 'http://localhost:8081/api',
     meeting: {
-      baseUrl: 'http://localhost:8081'
+      path: '/'
     }
   }
 };

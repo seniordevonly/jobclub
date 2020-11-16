@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   profileAge: string;
 
   private static profileUrl(): string {
-    return environment.services.meeting.baseUrl + '/profile';
+    return environment.services.baseUrl + '/profile';
   }
 
   ngOnInit(): void {

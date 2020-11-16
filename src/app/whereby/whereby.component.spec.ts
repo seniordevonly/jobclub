@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WherebyComponent } from './whereby.component';
 
-describe('WherebyComponent', () => {
+xdescribe('WherebyComponent', () => {
   let component: WherebyComponent;
   let fixture: ComponentFixture<WherebyComponent>;
 
