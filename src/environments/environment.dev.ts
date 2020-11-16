@@ -11,8 +11,9 @@ export const environment = {
     redirectUrl: 'https://dev.jobbstien.no'
   },
   services: {
+    baseUrl: 'https://jobclub-meeting-dev.herokuapp.com/api',
     meeting: {
-      baseUrl: 'https://jobclub-meeting-dev.herokuapp.com'
+      path: '/'
     }
   }
 };
