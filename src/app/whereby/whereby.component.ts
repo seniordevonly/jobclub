@@ -30,7 +30,7 @@ export class WherebyComponent implements OnInit {
   mainRole: string;
 
   private static buildRoomUrl(roomUrl: string): string {
-    return roomUrl + '?embed&leaveButton=off&people=off';
+    return roomUrl + '?embed&leaveButton=off&people=off&recording=on&screenshare=on';
   }
 
   ngOnInit(): void {
