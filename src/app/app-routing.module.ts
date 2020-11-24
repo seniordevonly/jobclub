@@ -8,6 +8,7 @@ import {HomeComponent} from './home/home.component';
 import {AppAuthGuard} from './app-auth.guard';
 import {Http403Component} from './shared/http403/http403.component';
 import {MeetComponent} from './meet/meet.component';
+import {TypeformComponent} from './typeform/typeform.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'zoom', pathMatch: 'full' },
@@ -38,6 +39,10 @@ const routes: Routes = [
     canActivate: [AppAuthGuard],
     data: { roles: ['user'] }
   },
+  {
+    path: 'typeform',
+    component: TypeformComponent
+  }
 ];
 
 @NgModule({
