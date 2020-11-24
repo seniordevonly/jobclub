@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+declare global {
+  interface Window { typeformEmbed: any; }
+}
 
 @Component({
   selector: 'app-root',
