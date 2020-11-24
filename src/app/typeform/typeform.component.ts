@@ -10,15 +10,13 @@ export class TypeformComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.ronk();
   }
 
   ngAfterViewInit(): void {
-    this.ronk();
+    this.addTypeForm();
   }
 
-  private ronk(): void {
-    // alert('window.addEventListener');
+  private addTypeForm(): void {
     const el = document.getElementById('my-embedded-typeform');
 
     window.typeformEmbed.makeWidget(el, 'https://thomasvervik284714.typeform.com/to/dJtzA1nh', {
