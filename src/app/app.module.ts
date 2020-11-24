@@ -19,6 +19,7 @@ import { LoggedinDirective } from './directive/loggedin/loggedin.directive';
 import { environment } from '../environments/environment';
 import { MeetComponent } from './meet/meet.component';
 import { TypeformComponent } from './typeform/typeform.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 // tslint:disable-next-line:typedef
@@ -54,7 +55,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PermissionDirective,
     LoggedinDirective,
     MeetComponent,
-    TypeformComponent
+    TypeformComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

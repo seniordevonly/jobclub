@@ -9,6 +9,7 @@ import {AppAuthGuard} from './app-auth.guard';
 import {Http403Component} from './shared/http403/http403.component';
 import {MeetComponent} from './meet/meet.component';
 import {TypeformComponent} from './typeform/typeform.component';
+import {CalendarComponent} from './calendar/calendar.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'zoom', pathMatch: 'full' },
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'typeform',
     component: TypeformComponent
+  },
+  {
+    path: 'calendar',
+    component: CalendarComponent
   }
 ];
 
